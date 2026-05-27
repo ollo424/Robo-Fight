@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1143200302430321440}
   - component: {fileID: 7858288677618379005}
   - component: {fileID: 3992192137002926895}
-  - component: {fileID: 5028065090082894794}
+  - component: {fileID: 14729258455687065}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.55, y: 0.26}
   m_EdgeRadius: 0
---- !u!114 &5028065090082894794
+--- !u!114 &14729258455687065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,15 +144,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3718978244517244982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5316a8e8b38ad2048bbd6040a4ffaabb, type: 3}
+  m_Script: {fileID: 11500000, guid: b66ba4cd706f44d48926f20cca1967e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 8
   lifeTime: 2
+  damage: 15
+  pushForce: 0.1
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 64
   wallMask:
     serializedVersion: 2
     m_Bits: 8
-  robotMask:
-    serializedVersion: 2
-    m_Bits: 64
-  owner: {fileID: 6234682451743412974, guid: 7cc30903251347c41be4b67b139ed87d, type: 3}

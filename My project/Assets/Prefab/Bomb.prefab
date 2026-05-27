@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1405147609668112801}
   - component: {fileID: 772707430455995240}
   - component: {fileID: 8107380053117118556}
-  - component: {fileID: 6805657143392031888}
+  - component: {fileID: 6915865160051553025}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1187107672862716698, guid: 915c20fcd9b0cf9479af359001f0c0c3, type: 3}
+  m_Sprite: {fileID: -5297292698525353293, guid: c6966d27e7c624841ad5e0accd6436fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &6805657143392031888
+--- !u!114 &6915865160051553025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,17 +134,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4529206566131084754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec09ffbf651983489a8119d83862974, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d5dcf25d5f3c8c469281e51a2510c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 2461504892063134824, guid: b9f26f47693bc4e48bb6900d0ac17175, type: 3}
-  fuseTime: 1
-  explosionRange: 3
-  wallMask:
+  environmentMask:
     serializedVersion: 2
     m_Bits: 8
-  robotMask:
-    serializedVersion: 2
-    m_Bits: 64
-  explosionEffectPrefab: {fileID: 426599437047913158, guid: 8f53048512ec7c34586b96c3328da236, type: 3}
-  effectLifeTime: 0.5
+  collisionExplodeDelay: 0.05

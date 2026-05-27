@@ -205,8 +205,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.5, y: -119.7}
-  m_SizeDelta: {x: 127.1862, y: 40.3248}
+  m_AnchoredPosition: {x: -24.5, y: -120.8}
+  m_SizeDelta: {x: 62.9863, y: 38.862}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &469301767
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.05
+  m_fontSize: 34.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 619060351}
   - component: {fileID: 619060352}
   m_Layer: 0
-  m_Name: PowerUpSpawner
+  m_Name: ArenaController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,14 +564,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 619060350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 942c934ea46c4a44eb162219b53606e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 337060e894736054498eeff50733e24b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeGenerator: {fileID: 1219885014}
-  spawnInterval: 8
-  invinciblePrefab: {fileID: 86710276373583339, guid: 43fd7af59f615da49adc846f81fa7afc, type: 3}
-  speedPrefab: {fileID: 8911107766663481339, guid: 7ec095e8b20722e4b8e063457f864e3b, type: 3}
-  extraLifePrefab: {fileID: 3484953025591854636, guid: d747bc10348fe504ca49e80da68cb64c, type: 3}
+  roadGenerator: {fileID: 1219885014}
+  arenaCamera: {fileID: 519420031}
+  cameraSize: 8
+  cameraOffset: {x: 0, y: 0, z: -10}
+  spawnClearanceCells: 2
+  minSpawnDistance: 2.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,8 +851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
-  m_SizeDelta: {x: 200, y: 300}
+  m_AnchoredPosition: {x: 61.0757, y: 0}
+  m_SizeDelta: {x: 122.1513, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837485355
 MonoBehaviour:
@@ -933,7 +934,7 @@ GameObject:
   - component: {fileID: 1219885013}
   - component: {fileID: 1219885014}
   m_Layer: 0
-  m_Name: MazeGenerator
+  m_Name: ArenaRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,16 +964,77 @@ MonoBehaviour:
   m_GameObject: {fileID: 1219885012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 206af0e3afdf4844a8d6b86afaf8c9ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 355a2bce2f0a65a4487a655f4597072d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSizeX: 15
-  gridSizeY: 15
-  cellSize: 1
-  wallPrefab: {fileID: 4981052273706529546, guid: e7309e1bf2c871049bf3a0b730b9da83, type: 3}
-  groundPrefab: {fileID: 4981052273706529546, guid: 06d5416e7221e9e4fa16fa72ce4ed349, type: 3}
-  wallParent: {fileID: 1413949483}
-  groundParent: {fileID: 880744332}
+  innerTileWidth: 11
+  innerTileHeight: 11
+  outerTileWidth: 30
+  outerTileHeight: 30
+  tileWidth: 2
+  tileHeight: 2
+  generateFlatIsoGround: 1
+  disableTileRotation: 1
+  roadSingleSprite: {fileID: 7094887773775264657, guid: 15f3a2803aff6984ea8aa69290bb8375, type: 3}
+  roadEndSprite: {fileID: 0}
+  roadStraightSprite: {fileID: 0}
+  roadCornerSprite: {fileID: 0}
+  roadTJunctionSprite: {fileID: 0}
+  roadCrossSprite: {fileID: 0}
+  roadSortingOrder: 0
+  useIsometricLayerSorting: 1
+  sortingMultiplier: 100
+  addRoadCollider: 0
+  centerArenaBuildingDensity: 0.15
+  outerZoneBuildingDensity: 0.62
+  avoidSamePrefabNeighbors: 1
+  buildingList1x1:
+  - {fileID: 4229344043757547795, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 3361927305581946704, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -5198019864220096445, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 5508118384516589765, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 7909819181964622567, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -9147702462032437865, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 915448784238106754, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -6833518933688483669, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -1986855475979294337, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 4053293024522352220, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 6426967748435013274, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -1194753334726071210, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -7049285615713039650, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 1457152973053690514, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 8553692072685528833, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -5172840518461308638, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 5040762060504378731, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  buildingList1x2:
+  - {fileID: 7176962346823125850, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -107333410888999950, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -393363516, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -2580429414657632710, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -3907746513547324664, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 5372759681996689193, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 4797934814576722263, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 3132586483674254674, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -5739840383126717854, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  buildingList2x2:
+  - {fileID: -1701886645097082779, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: -2202664804702078633, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 4965802835646140282, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 9018865015139032208, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  - {fileID: 7273133510528665851, guid: b8a3b1708fab2ce45841dc43f7838b41, type: 3}
+  addBuildingCollider: 1
+  forceBuildingCollider: 1
+  buildingWallTag: Wall
+  buildingYOffset: 0.3
+  max2x2Placements: 1
+  baseBuildingSortingOffset: 110
+  largeBuildingExtraSortingOffset: 50
+  spawnClearanceCells: 1
+  pathSeed: 0
+  randomWalkerSteps: 220
+  branchCount: 8
+  roadRoot: {fileID: 0}
+  buildingRoot: {fileID: 0}
 --- !u!1 &1241197989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,16 +1079,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba26bace358bbb43acede2cccf53412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeGenerator: {fileID: 1219885014}
-  robotEntries:
-  - displayName: Dasher
-    prefab: {fileID: 820304316345971718, guid: da137d8b6e3b0424395c7e2ac70deb31, type: 3}
+  arenaController: {fileID: 619060352}
+  mechaEntries:
   - displayName: Gunner
-    prefab: {fileID: 6852673223992913893, guid: 7cc30903251347c41be4b67b139ed87d, type: 3}
+    prefab: {fileID: 4199640740947987669, guid: 7cc30903251347c41be4b67b139ed87d, type: 3}
+  - displayName: Sword
+    prefab: {fileID: 7795532988698420958, guid: 55e546ea17f3aae47b9b33e7d11dc47a, type: 3}
   - displayName: Tank
-    prefab: {fileID: 2698613017067055759, guid: 1836b392143d3d949a678099fdfdebdb, type: 3}
+    prefab: {fileID: 295645629320024586, guid: 1836b392143d3d949a678099fdfdebdb, type: 3}
   - displayName: Bomber
-    prefab: {fileID: 8305406926420559740, guid: b9f26f47693bc4e48bb6900d0ac17175, type: 3}
+    prefab: {fileID: 3139075817738594309, guid: b9f26f47693bc4e48bb6900d0ac17175, type: 3}
   winText: {fileID: 1742203552}
   winBackground: {fileID: 1744106801}
   winListText: {fileID: 1308539759}
@@ -1068,8 +1130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 28.6086}
-  m_SizeDelta: {x: 200, y: 242.7827}
+  m_AnchoredPosition: {x: -2.3, y: 26.1}
+  m_SizeDelta: {x: 110.5246, y: 242.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308539759
 MonoBehaviour:
@@ -1118,15 +1180,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 40
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 40
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1237,8 +1299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.8, y: -123.4}
-  m_SizeDelta: {x: 123.7237, y: 30}
+  m_AnchoredPosition: {x: 37.9, y: -120.23}
+  m_SizeDelta: {x: 40.6301, y: 41.389}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614923910
 MonoBehaviour:
