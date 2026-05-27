@@ -2,8 +2,8 @@
 
 2D izometrik arena üzerinde farklı sınıflardaki robotların birbirleriyle savaştığı, Unity tabanlı bir proje.
 
-Bu proje ödev amacıyla geliştirilmiştir ve temel olarak şu başlıkları içerir:
-- Prosedürel arena/road üretimi
+Bu proje temel olarak şu başlıkları içerir:
+- Prosedürel arena üretimi
 - Grid tabanlı pathfinding + steering hareket
 - Sınıf bazlı combat sistemi (Sword, ShieldKnife, Gunner, Bomber)
 - Sprite listesiyle yönlü karakter ve efekt animasyonları
@@ -91,3 +91,7 @@ Bu log sistemi geliştirme/debug sürecinde kullanılmıştır.
 ## Lisans
 
 Bu repo ödev/prototip amaçlı hazırlanmıştır. Lisans gereksiniminiz varsa ek lisans dosyası (`LICENSE`) ekleyebilirsiniz.
+
+<img width="1552" height="867" alt="Ekran görüntüsü 2026-05-27 205006" src="https://github.com/user-attachments/assets/0dd6c293-bcda-4498-a2e5-30cf50603bc1" />
+
+<img width="1550" height="869" alt="Ekran görüntüsü 2026-05-27 205015" src="https://github.com/user-attachments/assets/04747edd-4429-42b4-a4f7-a6e9c4d88209" />
